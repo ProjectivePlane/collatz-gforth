@@ -72,3 +72,9 @@
     over collatz-sequence-length
     >=
     swap drop swap drop ;
+
+: collatz-length-diff ( n1 n2 - n3)
+    over collatz-sequence-length
+    over collatz-sequence-length
+    - negate
+    swap drop swap drop ;
