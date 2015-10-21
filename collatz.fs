@@ -18,7 +18,7 @@
 	collatz-func recurse 1+
     then ;
 
-: print-collatz-sequence-lengths ( n --)
+: print-collatz-sequence-lengths-table ( n --)
     dup 1 > if
 	1 ?do
 	    i collatz-sequence-length i . ." " . cr
@@ -61,4 +61,8 @@
     >
     swap drop swap drop ;
     
-    
+: collatz<= ( n1 n2 - b)
+    over collatz-sequence-length
+    over collatz-sequence-length
+    <=
+    swap drop swap drop ;
