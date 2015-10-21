@@ -42,4 +42,12 @@
     else
 	." Error: argument must be greater than 1."
     endif ;
+
+: collatz= ( m n - b)
+    over collatz-sequence-length
+    over collatz-sequence-length
+    =
+    swap drop swap drop ;
+
+    
     
