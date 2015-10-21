@@ -54,5 +54,11 @@
     over collatz-sequence-length
     <
     swap drop swap drop ;
+
+: collatz> ( n1 n2 - b)
+    over collatz-sequence-length
+    over collatz-sequence-length
+    >
+    swap drop swap drop ;
     
     
