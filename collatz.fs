@@ -6,7 +6,7 @@
 	3 * 1 +
     then ;
 
-: print-collatz-sequence
+: print-collatz-sequence ( n --)
     begin
 	dup . cr dup 1 > while
 	    collatz-func
