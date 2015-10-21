@@ -34,4 +34,12 @@
     repeat
     drop ;
 
+: print-collatz-sequence-table ( n --)
+    dup 1 > if
+	1 ?do
+	    i . ." " i print-collatz-sequence-row cr
+	loop
+    else
+	." Error: argument must be greater than 1."
+    endif ;
     
