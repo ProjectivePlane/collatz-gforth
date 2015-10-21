@@ -26,3 +26,12 @@
     else
 	." Error: argument must be greater than 1."
     endif ;
+
+: print-collatz-sequence-row ( n --)
+    begin
+	dup . ." " dup 1 > while
+	    collatz-func
+    repeat
+    drop ;
+
+    
