@@ -84,3 +84,6 @@
 
 : has-odd-predecessor ( n1 - b)
     dup 1- 3 mod 0= swap drop ;
+
+: odd-predecessor ( n1 - n2)
+    1- 3 / ;
