@@ -78,3 +78,9 @@
     over collatz-sequence-length
     - negate
     swap drop swap drop ;
+
+: even-predecessor ( n1 - n2)
+    2 * ;
+
+: has-odd-predecessor ( n1 - b)
+    dup 1- 3 mod 0= swap drop ;
