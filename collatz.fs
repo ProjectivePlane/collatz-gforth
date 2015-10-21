@@ -10,4 +10,11 @@
     begin
 	dup . cr dup 1 > while
 	    collatz-func
-	repeat ;
+    repeat
+    drop ;
+
+: collatz-sequence-length ( n -- n)
+    dup 1 > if
+	collatz-func recurse 1+
+    then ;
+    
