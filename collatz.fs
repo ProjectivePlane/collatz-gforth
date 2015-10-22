@@ -79,19 +79,19 @@
     - negate
     swap drop swap drop ;
 
-: even-predecessor ( n1 - n2)
+: calc-even-predecessor ( n1 - n2)
     2 * ;
 
 : has-odd-predecessor ( n1 - b)
     dup 1- 3 mod 0= swap drop ;
 
-: odd-predecessor ( n1 - n2)
+: calc-odd-predecessor ( n1 - n2)
     1- 3 / ;
 
 : print-predecessors ( n1 --)
-    dup even-predecessor . ." "
+    dup calc-even-predecessor . ." "
     dup has-odd-predecessor if
-	odd-predecessor . cr
+	calc-odd-predecessor . cr
     else
 	drop
     then ;
@@ -105,7 +105,7 @@
 
 : calc-predecessors ( n1 -- n2 n3)
     dup count-predecessors 1 = if
-	even-predecessor
+	calc-even-predecessor
     else
-	dup even-predecessor swap odd-predecessor
+	dup calc-even-predecessor swap calc-odd-predecessor
     then ;
