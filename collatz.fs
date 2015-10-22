@@ -109,3 +109,10 @@
     else
 	dup calc-even-predecessor swap calc-odd-predecessor
     then ;
+
+: print-predecessors
+    dup count-predecessors 1 = if
+	calc-even-predecessor . cr
+    else
+	dup calc-even-predecessor swap calc-odd-predecessor . ." " . cr
+    then ;
