@@ -88,13 +88,6 @@
 : calc-odd-predecessor ( n1 - n2)
     1- 3 / ;
 
-: print-predecessors ( n1 --)
-    dup calc-even-predecessor . ." "
-    dup has-odd-predecessor if
-	calc-odd-predecessor . cr
-    else
-	drop
-    then ;
 
 : count-predecessors ( n1 --)
     has-odd-predecessor if
