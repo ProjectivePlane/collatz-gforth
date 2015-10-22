@@ -102,3 +102,10 @@
     else
 	1
     then ;
+
+: calc-predecessors ( n1 -- n2 n3)
+    dup count-predecessors 1 = if
+	even-predecessor
+    else
+	dup even-predecessor swap odd-predecessor
+    then ;
