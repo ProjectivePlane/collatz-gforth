@@ -87,3 +87,11 @@
 
 : odd-predecessor ( n1 - n2)
     1- 3 / ;
+
+: print-predecessors ( n1 --)
+    dup even-predecessor . ." "
+    dup has-odd-predecessor if
+	odd-predecessor . cr
+    else
+	drop
+    then ;
