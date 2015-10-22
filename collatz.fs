@@ -95,3 +95,10 @@
     else
 	drop
     then ;
+
+: count-predecessors ( n1 --)
+    has-odd-predecessor if
+	2
+    else
+	1
+    then ;
