@@ -73,6 +73,12 @@
     >=
     swap drop swap drop ;
 
+: collatz<> ( n1 n2 - b)
+    over collatz-sequence-length
+    over collatz-sequence-length
+    <>
+    swap drop swap drop ;
+
 : collatz-length-diff ( n1 n2 - n3)
     over collatz-sequence-length
     over collatz-sequence-length
@@ -87,7 +93,6 @@
 
 : calc-odd-predecessor ( n1 - n2)
     1- 3 / ;
-
 
 : count-predecessors ( n1 --)
     has-odd-predecessor if
