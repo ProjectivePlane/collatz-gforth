@@ -114,3 +114,18 @@
     else
 	dup calc-even-predecessor swap calc-odd-predecessor . ." " . cr
     then ;
+
+: is-power-of-two ( n -- b)
+    dup 2 mod 0<> if
+	drop false
+    else
+	begin
+	    dup dup 2 mod 0= swap 1 > and while
+		2 /
+	repeat
+	1 > if
+	    false
+	else
+	    true
+	then
+    then ;
