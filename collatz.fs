@@ -129,3 +129,20 @@
 	    true
 	then
     then ;
+
+: remove-two-factor ( n1 n2 -- n1/2 n2*2)
+    2 * swap 2 / swap ;
+
+: under-is-even ( n1 n2 -- n1 n2 b)
+    over 2 mod 0= ;
+
+: factor-out-power-of-two ( n -- n1 n2)
+    dup is-power-of-two if
+	1 swap
+    else
+	1
+	begin
+	    under-is-even while
+		remove-two-factor
+	repeat
+    then ;
