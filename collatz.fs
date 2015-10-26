@@ -130,7 +130,7 @@
 	then
     then ;
 
-: remove-two-factor ( n1 n2 -- n1/2 n2*2)
+: transfer-two-factor ( n1 n2 -- n1/2 n2*2)
     2 * swap 2 / swap ;
 
 : under-is-even ( n1 n2 -- n1 n2 b)
@@ -143,6 +143,25 @@
 	1
 	begin
 	    under-is-even while
-		remove-two-factor
+		transfer-two-factor
 	repeat
     then ;
+
+: collatz-func-with-count ( n -- n)
+    dup 2 mod
+    0= if
+	2 /
+	>r swap 1+ swap r>
+    else
+	3 * 1 +
+	>r 1+ r>
+    then ;
+
+
+: calculate-collatz-sequence-ups-downs ( n -- downs ups)
+    0 0 rot
+    begin
+	dup 1 > while
+	    collatz-func-with-count
+    repeat
+    drop ;
