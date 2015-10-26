@@ -165,3 +165,6 @@
 	    collatz-func-with-count
     repeat
     drop ;
+
+: calculate-collatz-sequence-ups-downs-diff ( n -- ndiff)
+    calculate-collatz-sequence-ups-downs - ;
