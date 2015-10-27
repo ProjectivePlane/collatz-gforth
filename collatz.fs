@@ -168,3 +168,9 @@
 
 : calculate-collatz-sequence-ups-downs-diff ( n -- ndiff)
     calculate-collatz-sequence-ups-downs - ;
+
+: print-ups-downs-table ( n --)
+    1 ?do
+	i calculate-collatz-sequence-ups-downs
+	i . ." " swap . ." " . cr
+    loop ;
