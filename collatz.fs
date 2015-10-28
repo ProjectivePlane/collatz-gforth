@@ -174,3 +174,12 @@
 	i calculate-collatz-sequence-ups-downs
 	i . ." " swap . ." " . cr
     loop ;
+
+: collatz-func-pair ( n1 n2 -- n3 n3)
+    collatz-func swap collatz-func swap ;
+
+: collatz-iterate-pairs-until-identical ( n1 n2 -- n3)
+    begin
+	over over <> while
+	    collatz-func-pair
+    repeat drop ;
