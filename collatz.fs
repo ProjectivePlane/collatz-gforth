@@ -178,8 +178,14 @@
 : collatz-func-pair ( n1 n2 -- n3 n3)
     collatz-func swap collatz-func swap ;
 
-: collatz-iterate-pairs-until-identical ( n1 n2 -- n3)
+: not-identical ( n1 n2 -- n1 n2 b)
+    over over <> ;
+
+: neither-is-finished ( n1 n2 -- n1 n2 b)
+    over 1 > over 1 > and ;
+
+: collatz-iterate-pairs-until-identical-or-finished ( n1 n2 -- n3)
     begin
-	over over <> while
+	neither-is-finished >r not-identical r> and while
 	    collatz-func-pair
     repeat drop ;
